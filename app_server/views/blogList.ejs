@@ -1,0 +1,23 @@
+<!DOCTYPE htlm>
+<html>
+	<head>
+		<title><%= title %></title>
+		<link rel = 'stylesheet' href = '/stylesheets/style.css' />
+		<link rel = 'stylesheet' href = '/css/bootstrap.min.css' />
+		<link rel = 'stylesheet' href = '/css/fontawesome-all.css' />
+	</head>
+	<body>
+		<% include ./partials/nav %>
+		<h1><%= title %></h1>
+                <% if (blogEntries.length == 0) { %>
+                	<h4>No blogs to display. You may add some above. </h4>
+		<% } else %>
+		<% { %>
+			<% let blog = {} %>
+			<% for (let i = 0; i < blogEntries.length; i++) {
+				blog = blogEntries[i] %>
+                        	<%include ./partials/showblog %>
+                        <% } %>
+                 <% } %>
+	</body>
+</html>
