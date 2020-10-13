@@ -64,10 +64,30 @@ var buildBlogList = function(req, res, results) { // Creates array of blogs
       _id: obj._id,
       blogTitle: obj.blogTitle,
       blogText: obj.blogText,
-      CreatedOn: obj.ceatedOn
+      createdOn: obj.ceatedOn
     });
   });
   return blogs;
 };
+
+/* POST a new location ?????????? */
+/* /api/locations ??????? */
+
+/* Update one Book entry */
+module.exports.blogUpdateOne = function(req, res) {
+    console.log("Updating a blog entry with id of " + req.params.blogid);
+    console.log(req.body);
+    blogModel
+  	  .findOneAndUpdate(
+	     { _id: req.params.blogid },
+ 	     { $set: {"blogTitle": req.body.blogTitle, "blogAuthor": req.body.blogAuthor}},
+	     function(err, response) {
+	         if (err) {
+	  	         sendJSONresponse(res, 400, err);
+	         } else {
+		        sendJSONresponse(res, 201, response);
+	        }
+	    }
+    );
 
 
