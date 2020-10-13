@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var ctrlBlogs = require ('../controllers/blog');
+var ctrlBlogs = require('../controllers/blogs');
 
 /* Blog Request */ 
 router.post('/blogs', ctrlBlogs.blogsCreate);
