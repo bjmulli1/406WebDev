@@ -73,14 +73,14 @@ var buildBlogList = function(req, res, results) { // Creates array of blogs
 /* POST a new location ?????????? */
 /* /api/locations ??????? */
 
-/* Update one Book entry */
-module.exports.blogUpdateOne = function(req, res) {
+/* Update one blog entry */ ******
+module.exports.blogsUpdateOne = function(req, res) {
     console.log("Updating a blog entry with id of " + req.params.blogid);
     console.log(req.body);
     blogModel
   	  .findOneAndUpdate(
 	     { _id: req.params.blogid },
- 	     { $set: {"blogTitle": req.body.blogTitle, "blogAuthor": req.body.blogAuthor}},
+ 	     { $set: {"blogTitle": req.body.blogTitle, "blogAuthor": req.body.blogAuthor}}, // not sure of this bit
 	     function(err, response) {
 	         if (err) {
 	  	         sendJSONresponse(res, 400, err);
@@ -90,4 +90,20 @@ module.exports.blogUpdateOne = function(req, res) {
 	    }
     );
 
+/* Delete one blog */
+module.exports.blogsDeleteOne = function(req, res){
+	console.log("Deleting blog with id of " + req.param.blogid);
+	console.log(req.body);
+	blogModel
+		.findByIdAndRemove(req.params.blogid) 
+		.exec (
+			function(err, response){
+				if(err){
+					sendJSONresponse(res, 404, err);
+				} else{
+					sendJSONresponse(res, 204, null);
+				}
+			}
+		);
+};
 
