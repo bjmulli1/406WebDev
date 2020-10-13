@@ -6,7 +6,6 @@ var sendJSONresponse = function(res, status, content) {
   res.json(content);
 };
 
-
 // GET blog using id
 module.exports.blogsReadOne = function(req, res) {
   console.log('Finding blog details', req.params);
@@ -73,7 +72,7 @@ var buildBlogList = function(req, res, results) { // Creates array of blogs
 /* POST a new location ?????????? */
 /* /api/locations ??????? */
 
-/* Update one blog entry */ ******
+/* Update one blog entry */
 module.exports.blogsUpdateOne = function(req, res) {
     console.log("Updating a blog entry with id of " + req.params.blogid);
     console.log(req.body);
