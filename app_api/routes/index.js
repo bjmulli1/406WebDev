@@ -1,8 +1,11 @@
-var ctrlReviews = require('../controllers/reviews');
+var express = require('express');
+var router = express.Router();
+var ctrlBlogs = require ('../controllers/blog');
 
-...
-// reviews
-router.post('/locations/:locationid/reviews', ctrlReviews.reviewsCreate);
-router.get('/locations/:locationid/reviews/:reviewid', ctrlReviews.reviewsReadOne);
-router.put('/locations/:locationid/reviews/:reviewid', ctrlReviews.reviewsUpdateOne);
-router.delete('/locations/:locationid/reviews/:reviewid', ctrlReviews.reviewsDeleteOne); 
+/* Blog Request */ 
+router.post('/blogs', ctrlBlogs.blogsCreate);
+router.get('/blogs:blogid', ctrlBlogs.blogsReadOne);
+router.put('/blogs:blogid', ctrlBlogs.blogsUpdateOne);
+router.delete('/blogs', ctrlBlogs.blogsDeleteOne); 
+
+module.exports = router;
