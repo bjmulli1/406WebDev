@@ -57,7 +57,7 @@ module.exports.blogsReadAll = function(req, res) {
       }); 
 };
 
-var buildBlogList = function(req, res, results) {
+var buildBlogList = function(req, res, results) { // Creates array of blogs
   var blogs = [];
   results.forEach(function(obj) {
     blogs.push({
