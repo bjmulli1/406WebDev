@@ -1,6 +1,6 @@
 var request = require('request');
 var apiOptions = {
-	server : "https://localhost:80"
+	server : "http://3.218.150.65/:80"
 };
 
 /*GET Blog List Page*/
