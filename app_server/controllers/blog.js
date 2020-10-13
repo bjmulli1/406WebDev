@@ -1,3 +1,8 @@
+var request = require('request');
+var apiOptions = {
+	server : "https://localhost:80"
+};
+
 /*GET Blog List Page*/
 module.exports.bloglist=function(req,res){
 	res.render('blogList',{title: 'Blog List', blogEntries:
