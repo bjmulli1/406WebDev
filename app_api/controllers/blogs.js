@@ -62,12 +62,12 @@ var buildBlogList = function(req, res, results) {
   results.forEach(function(obj) {
     blogs.push({
       _id: obj._id,
-      address: obj.address,
-      rating: obj.rating,
-      _id: obj._id
+      blogTitle: obj.blogTitle,
+      blogText: obj.blogText,
+      CreatedOn: obj.ceatedOn
     });
   });
-  return locations;
+  return blogs;
 };
 
 
