@@ -89,29 +89,30 @@ module.exports.blogCreate = function(req, res){
 		);
 };
 
-/* Update one blog entry */
-module.exports.blogsUpdateOne = function(req, res) {
-    console.log("Updating a blog entry with id of " + req.params.blogid);
-    console.log(req.body);
-    blogModel
-  	  .findOneAndUpdate(
-	     { _id: req.params.blogid },
- 	     { $set: {"blogTitle": req.body.blogTitle, "blogAuthor": req.body.blogAuthor}}, // not sure of this bit
-	     function(err, response) {
-	         if (err) {
-	  	         sendJSONresponse(res, 400, err);
-	         } else {
-		        sendJSONresponse(res, 201, response);
-	        }
-	    }
-    );
+/* Update one blog */
+module.exports.blogUpdateOne = function(req, res){
+	console.log("Updating a blog with id of " + req.params.blogid);
+	console.log(req.body);
+	Blog
+		.findOneAndUpdate(
+			{ _id: req.params.blogid},
+			{ $set: {"blogTitle": req.body.blogTitle, "blogText": req.body.blogText, "createdOn": req.body.createdOn}},
+			function(err, response){
+				if(err){
+					sendJSONresponse(res, 400, err);
+				} else{
+					sendJSONresponse(res, 201, response);
+				}
+			}
+		);
+};
 
 /* Delete one blog */
-module.exports.blogsDeleteOne = function(req, res){
+module.exports.blogDeleteOne = function(req, res){
 	console.log("Deleting blog with id of " + req.param.blogid);
 	console.log(req.body);
-	blogModel
-		.findByIdAndRemove(req.params.blogid) 
+	Blog
+		.findByIdAndRemove(req.params.blogid)
 		.exec (
 			function(err, response){
 				if(err){
