@@ -69,8 +69,25 @@ var buildBlogList = function(req, res, results) { // Creates array of blogs
   return blogs;
 };
 
-/* POST a new ?????????? */
-/* /api/locations ??????? */
+/* POST new blog */
+module.exports.blogCreate = function(req, res){
+	console.log(req.body);
+	Blog
+		.create({
+			blogTitle: req.body.blogTitle,
+			blogText: req.body.blogText,
+			createdOn: req.body.createdOn
+		}, function(err, location){
+			if(err){
+				console.log(err);
+				sendJSONresponse(res, 400, err);
+			} else{
+				console.log(location);
+				sendJSONresponse(res, 201, location);
+			}
+		}
+		);
+};
 
 /* Update one blog entry */
 module.exports.blogsUpdateOne = function(req, res) {
