@@ -1,13 +1,16 @@
 var express = require('express');
 var router = express.Router();
-var controlHome = require ('../controllers/home');
-var controlBlog = require ('../controllers/blog');
+var ctrlHome = require('../controllers/home');
+var ctrlBlogPages = require('../controllers/blog');
 
-/* Set Routes */
-router.get('/',controlHome.home);
-router.get('/blogList',controlBlog.bloglist);
-router.get ('/blogAdd',controlBlog.blogadd);
-router.get('/blogEdit',controlBlog.blogedit);
-router.get ('/blogDelete',controlBlog.blogdelete);
+/* Setup routes to pages */
+router.get('/', ctrlHome.home);
+router.get('/blogList', ctrlBlogPages.blogList);
+router.get('/blogAdd', ctrlBlogPages.blogAdd);
+router.get('/blogEdit/:blogid', ctrlBlogPages.blogEdit);
+router.get('/blogDelete/:blogid', ctrlBlogPages.blogDelete);
+router.post('/blogAdd', ctrlBlogPages.addPost);
+router.post('/blogEdit/:blogid', ctrlBlogPages.editPost);
+router.post('/blogDelete/:blogid', ctrlBlogPages.deletePost);
 
 module.exports = router;
