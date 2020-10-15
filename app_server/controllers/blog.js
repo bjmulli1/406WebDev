@@ -4,23 +4,34 @@ var apiOptions = {
 };
 
 /*GET Blog List Page*/
-module.exports.bloglist=function(req,res){
-	res.render('blogList',{title: 'Blog List', blogEntries:
-	[{
-		blogTitle: 'FirstBlog',
-		blogText: 'Hello world.'
-	},
-	{
-		blogTitle: 'SecondBlog',
-		blogText: 'Hello Universe.'
-	},
-	{
-		blogTitle: 'ThirdBlog',
-		blogText: 'Hello mom.'
-	}]
-	});
-
+module.exports.blogList = function(req, res){
+	var requestOptions, path;
+	path = '/api/blogs/';
+	requestOptions = {
+		url: apiOptions.server + path,
+		method: "GET",
+		json: {},
+		qs: {}
+	};
+	request(
+		requestOptions,
+		function(err, response, body){
+			renderBlogList(req, res, body);
+		}
+	);
 };
+
+/* Render the book list page ?? */
+var renderBlogList = function(req, res, responseBody){
+    res.render('blogList', {
+        title: 'Blog List',
+        pageHeader: {
+            title: 'Blog List'
+        },
+        blogs: responseBody 
+    });
+};
+
 
 /*GET BlogAdd Page*/
 module.exports.blogadd=function(req,res){
