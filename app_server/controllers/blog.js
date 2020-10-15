@@ -3,6 +3,23 @@ var apiOptions = {
 	server : "http://3.218.150.65:80"
 };
 
+var _showError = function(req, res, status){
+	var title, content;
+	if(status === 404){
+		title = "404, page not found";
+		content = "Page could not be found. Sorry!";
+	} else{
+		title = status + ", something went wrong!";
+		content = "Something has gone wrong with this page.";
+	}
+	res.status(status);
+	res.render('generic-text', {
+		title: title,
+		content: content
+	});
+};
+
+
 /*GET Blog List Page*/
 module.exports.blogList = function(req, res){
 	var requestOptions, path;
