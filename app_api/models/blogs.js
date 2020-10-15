@@ -9,5 +9,5 @@ var blogSchema = new mongoose.Schema({
 	}
 });
 
-//Tells data to use blogEntrySchema
+//Tells data to use blogSchema
 mongoose.model("blogger",blogEntrySchema);
