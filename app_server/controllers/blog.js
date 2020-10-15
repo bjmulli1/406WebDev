@@ -38,13 +38,10 @@ module.exports.blogList = function(req, res){
 	);
 };
 
-/* Render the book list page ?? */
+/* Render the book list page  */
 var renderBlogList = function(req, res, responseBody){
     res.render('blogList', {
         title: 'Blog List',
-        pageHeader: {
-            title: 'Blog List'
-        },
         blogs: responseBody 
     });
 };
