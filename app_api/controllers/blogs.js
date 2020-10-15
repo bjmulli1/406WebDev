@@ -63,7 +63,7 @@ var buildBlogList = function(req, res, results) { // Creates array of blogs
       _id: obj._id,
       blogTitle: obj.blogTitle,
       blogText: obj.blogText,
-      createdOn: obj.ceatedOn
+      createdOn: obj.createdOn
     });
   });
   return blogs;
