@@ -77,13 +77,13 @@ module.exports.blogCreate = function(req, res){
 			blogTitle: req.body.blogTitle,
 			blogText: req.body.blogText,
 			createdOn: req.body.createdOn
-		}, function(err, location){
+		}, function(err, blog){
 			if(err){
 				console.log(err);
 				sendJSONresponse(res, 400, err);
 			} else{
-				console.log(location);
-				sendJSONresponse(res, 201, location);
+				console.log(blog);
+				sendJSONresponse(res, 201, blog);
 			}
 		}
 		);
