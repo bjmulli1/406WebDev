@@ -12,8 +12,8 @@ module.exports.blogsReadOne = function(req, res) {
   if (req.params && req.params.blogid) {
     Blog
       .findById(req.params.blogid)
-      .exec(function(err, location) {
-        if (!location) {
+      .exec(function(err, blog) {
+        if (!blog) {
           sendJSONresponse(res, 404, {
             "message": "blog id not found"
           });
@@ -23,8 +23,8 @@ module.exports.blogsReadOne = function(req, res) {
           sendJSONresponse(res, 404, err);
           return;
         }
-        console.log(location);
-        sendJSONresponse(res, 200, location);
+        console.log(blog);
+        sendJSONresponse(res, 200, blog);
       });
   } else {
     console.log('No blogid specified');
@@ -69,7 +69,7 @@ var buildBlogList = function(req, res, results) { // Creates array of blogs
   return blogs;
 };
 
-/* POST a new location ?????????? */
+/* POST a new ?????????? */
 /* /api/locations ??????? */
 
 /* Update one blog entry */
