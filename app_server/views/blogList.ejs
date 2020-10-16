@@ -9,14 +9,38 @@
 	<body>
 		<% include ./partials/nav %>
 		<h1><%= title %></h1>
-                <% if (blogEntries.length == 0) { %>
+                <% if (blogs.length == 0) { %>
                 	<h4>No blogs to display. You may add some above. </h4>
 		<% } else %>
 		<% { %>
-			<% let blog = {} %>
-			<% for (let i = 0; i < blogEntries.length; i++) {
-				blog = blogEntries[i] %>
-                        	<%include ./partials/showblog %>
+			<% for (let i = 0; i < blogs.length; i++) { %> 
+				<div class = 'card border-primary' style = 'width:50%'>
+				<div class = 'card-header'>
+				<div class = 'row'>
+					<div class = 'col-sm'>
+						<p class = 'card-text'><%= blogs[i].createdOn %></p>
+					</div>
+				</div>
+				</div>
+				<div class = 'card-body'>
+					<h5 class = 'card-title'><%= blogs[i].blogTitle %></h5>
+					<p class = 'card-text'><%= blogs[i].blogText %></p>
+				</div>
+				<div class = 'card-footer'>
+					<div class = 'row'>
+						<div class = 'col-sm'>
+							<ul class = 'nav justify-content-end nav-pills card-header-pills'>
+								<li class = 'nav-item'>
+									<a class = 'nav-link' href = '/blogEdit/<%= blogs[i]._id %>'><i class = 'fas fa-edit'></i></a>
+								</li>
+								<li class = 'nav-item'>
+									<a class ='nav-link' href = '/blogDelete/<%= blogs[i]._id %>'><i class = 'fas fa-trash-alt'></i></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
                         <% } %>
                  <% } %>
 	</body>

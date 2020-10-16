@@ -9,4 +9,4 @@ router.get('/blogs/:blogid', ctrlBlogs.blogGetOne);
 router.put('/blogs/:blogid', ctrlBlogs.blogUpdateOne);
 router.delete('/blogs/:blogid', ctrlBlogs.blogDeleteOne);
 
-module.exports = router;
+module.exports = router; 
