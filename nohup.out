@@ -742,3 +742,497 @@ Mongoose connected to mongodb://localhost/blogger
 [0mGET /stylesheets/style.css [36m304 [0m0.435 ms - -[0m
 [0mGET /css/bootstrap.min.css [36m304 [0m1.111 ms - -[0m
 [0mGET / [32m200 [0m0.852 ms - 687[0m
+
+> view-ejs@0.0.0 start /home/bitnami/lab-6
+> node ./bin/www
+
+Port 80 is already in use
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! view-ejs@0.0.0 start: `node ./bin/www`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the view-ejs@0.0.0 start script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /root/.npm/_logs/2020-11-08T16_09_53_763Z-debug.log
+
+> view-ejs@0.0.0 start /home/bitnami/lab-6
+> node ./bin/www
+
+Mongoose connected to mongodb://blogger:blogger@localhost:27017/blogger
+[0mGET / [32m200 [0m5.994 ms - 6427[0m
+[0mGET /stylesheets/style.css [32m200 [0m0.657 ms - 138[0m
+[0mGET /js/angular.min.js [32m200 [0m2.812 ms - 158915[0m
+[0mGET /css/fontawesome-all.css [32m200 [0m1.916 ms - 51609[0m
+[0mGET /js/angular-route.min.js [32m200 [0m2.516 ms - 4595[0m
+[0mGET /css/bootstrap.min.css [32m200 [0m2.485 ms - 160302[0m
+[0mGET /js/angular-ui-router.min.js [32m200 [0m1.003 ms - 114858[0m
+[0mGET /nav/navigation.js [32m200 [0m1.325 ms - 683[0m
+[0mGET /js/blogger.js [32m200 [0m2.529 ms - 4909[0m
+[0mGET /auth/authentication.js [32m200 [0m0.759 ms - 3224[0m
+[0mGET /nav/navigation.html [32m200 [0m0.825 ms - 664[0m
+Getting blog list
+[
+  {
+    _id: 5f8b8fecffeeba3c0464f337,
+    blogTitle: 'Third',
+    blogText: 'Ok!',
+    createdOn: 2020-10-18T00:44:28.214Z,
+    __v: 0
+  },
+  {
+    _id: 5f9da2edffeeba3c0464f338,
+    blogTitle: 'something',
+    blogText: 'yo',
+    createdOn: 2020-10-31T17:46:21.624Z,
+    __v: 0
+  },
+  {
+    _id: 5f9da38affeeba3c0464f339,
+    blogTitle: 'Added by Prof Rogers',
+    blogText: 'test',
+    createdOn: 2020-10-31T17:48:58.075Z,
+    __v: 0
+  }
+]
+[0mGET /api/blogs/ [32m200 [0m20.566 ms - 353[0m
+[0mPOST /api/register [32m200 [0m39.168 ms - 259[0m
+{ blogTitle: 'something', blogText: 'test' }
+{
+  _id: 5fa818f27ce26755ab5fc040,
+  blogTitle: 'something',
+  blogText: 'test',
+  createdOn: 2020-11-08T16:12:34.728Z,
+  __v: 0
+}
+[0mPOST /api/blogs/ [32m201 [0m7.534 ms - 123[0m
+Getting blog list
+[
+  {
+    _id: 5f8b8fecffeeba3c0464f337,
+    blogTitle: 'Third',
+    blogText: 'Ok!',
+    createdOn: 2020-10-18T00:44:28.214Z,
+    __v: 0
+  },
+  {
+    _id: 5f9da2edffeeba3c0464f338,
+    blogTitle: 'something',
+    blogText: 'yo',
+    createdOn: 2020-10-31T17:46:21.624Z,
+    __v: 0
+  },
+  {
+    _id: 5f9da38affeeba3c0464f339,
+    blogTitle: 'Added by Prof Rogers',
+    blogText: 'test',
+    createdOn: 2020-10-31T17:48:58.075Z,
+    __v: 0
+  },
+  {
+    _id: 5fa818f27ce26755ab5fc040,
+    blogTitle: 'something',
+    blogText: 'test',
+    createdOn: 2020-11-08T16:12:34.728Z,
+    __v: 0
+  }
+]
+[0mGET /api/blogs/ [32m200 [0m3.451 ms - 469[0m
+[0mGET /webfonts/fa-solid-900.woff2 [32m200 [0m0.886 ms - 50372[0m
+Finding blog details { blogid: '5fa818f27ce26755ab5fc040' }
+{
+  _id: 5fa818f27ce26755ab5fc040,
+  blogTitle: 'something',
+  blogText: 'test',
+  createdOn: 2020-11-08T16:12:34.728Z,
+  __v: 0
+}
+[0mGET /api/blogs/5fa818f27ce26755ab5fc040 [32m200 [0m7.463 ms - 123[0m
+Finding blog details { blogid: '5fa818f27ce26755ab5fc040' }
+{
+  _id: 5fa818f27ce26755ab5fc040,
+  blogTitle: 'something',
+  blogText: 'test',
+  createdOn: 2020-11-08T16:12:34.728Z,
+  __v: 0
+}
+[0mGET /api/blogs/5fa818f27ce26755ab5fc040 [36m304 [0m2.579 ms - -[0m
+Finding blog details { blogid: '5fa818f27ce26755ab5fc040' }
+{
+  _id: 5fa818f27ce26755ab5fc040,
+  blogTitle: 'something',
+  blogText: 'test',
+  createdOn: 2020-11-08T16:12:34.728Z,
+  __v: 0
+}
+[0mGET /api/blogs/5fa818f27ce26755ab5fc040 [36m304 [0m2.455 ms - -[0m
+Deleting blog with id of undefined
+{}
+[0mDELETE /api/blogs/5fa818f27ce26755ab5fc040 [32m204 [0m4.710 ms - -[0m
+Getting blog list
+[
+  {
+    _id: 5f8b8fecffeeba3c0464f337,
+    blogTitle: 'Third',
+    blogText: 'Ok!',
+    createdOn: 2020-10-18T00:44:28.214Z,
+    __v: 0
+  },
+  {
+    _id: 5f9da2edffeeba3c0464f338,
+    blogTitle: 'something',
+    blogText: 'yo',
+    createdOn: 2020-10-31T17:46:21.624Z,
+    __v: 0
+  },
+  {
+    _id: 5f9da38affeeba3c0464f339,
+    blogTitle: 'Added by Prof Rogers',
+    blogText: 'test',
+    createdOn: 2020-10-31T17:48:58.075Z,
+    __v: 0
+  }
+]
+[0mGET /api/blogs/ [32m200 [0m3.361 ms - 353[0m
+[0mPOST /api/login [32m200 [0m17.211 ms - 259[0m
+Getting blog list
+[
+  {
+    _id: 5f8b8fecffeeba3c0464f337,
+    blogTitle: 'Third',
+    blogText: 'Ok!',
+    createdOn: 2020-10-18T00:44:28.214Z,
+    __v: 0
+  },
+  {
+    _id: 5f9da2edffeeba3c0464f338,
+    blogTitle: 'something',
+    blogText: 'yo',
+    createdOn: 2020-10-31T17:46:21.624Z,
+    __v: 0
+  },
+  {
+    _id: 5f9da38affeeba3c0464f339,
+    blogTitle: 'Added by Prof Rogers',
+    blogText: 'test',
+    createdOn: 2020-10-31T17:48:58.075Z,
+    __v: 0
+  }
+]
+[0mGET /api/blogs/ [36m304 [0m4.265 ms - -[0m
+{ blogTitle: 'something', blogText: 'yo' }
+{
+  _id: 5fa819097ce26755ab5fc041,
+  blogTitle: 'something',
+  blogText: 'yo',
+  createdOn: 2020-11-08T16:12:57.741Z,
+  __v: 0
+}
+[0mPOST /api/blogs/ [32m201 [0m3.626 ms - 121[0m
+Getting blog list
+[
+  {
+    _id: 5f8b8fecffeeba3c0464f337,
+    blogTitle: 'Third',
+    blogText: 'Ok!',
+    createdOn: 2020-10-18T00:44:28.214Z,
+    __v: 0
+  },
+  {
+    _id: 5f9da2edffeeba3c0464f338,
+    blogTitle: 'something',
+    blogText: 'yo',
+    createdOn: 2020-10-31T17:46:21.624Z,
+    __v: 0
+  },
+  {
+    _id: 5f9da38affeeba3c0464f339,
+    blogTitle: 'Added by Prof Rogers',
+    blogText: 'test',
+    createdOn: 2020-10-31T17:48:58.075Z,
+    __v: 0
+  },
+  {
+    _id: 5fa819097ce26755ab5fc041,
+    blogTitle: 'something',
+    blogText: 'yo',
+    createdOn: 2020-11-08T16:12:57.741Z,
+    __v: 0
+  }
+]
+[0mGET /api/blogs/ [32m200 [0m3.238 ms - 467[0m
+Finding blog details { blogid: '5fa819097ce26755ab5fc041' }
+{
+  _id: 5fa819097ce26755ab5fc041,
+  blogTitle: 'something',
+  blogText: 'yo',
+  createdOn: 2020-11-08T16:12:57.741Z,
+  __v: 0
+}
+[0mGET /api/blogs/5fa819097ce26755ab5fc041 [32m200 [0m2.684 ms - 121[0m
+Finding blog details { blogid: '5fa819097ce26755ab5fc041' }
+{
+  _id: 5fa819097ce26755ab5fc041,
+  blogTitle: 'something',
+  blogText: 'yo',
+  createdOn: 2020-11-08T16:12:57.741Z,
+  __v: 0
+}
+[0mGET /api/blogs/5fa819097ce26755ab5fc041 [36m304 [0m2.262 ms - -[0m
+Finding blog details { blogid: '5fa819097ce26755ab5fc041' }
+{
+  _id: 5fa819097ce26755ab5fc041,
+  blogTitle: 'something',
+  blogText: 'yo',
+  createdOn: 2020-11-08T16:12:57.741Z,
+  __v: 0
+}
+[0mGET /api/blogs/5fa819097ce26755ab5fc041 [36m304 [0m3.064 ms - -[0m
+Getting blog list
+[
+  {
+    _id: 5f8b8fecffeeba3c0464f337,
+    blogTitle: 'Third',
+    blogText: 'Ok!',
+    createdOn: 2020-10-18T00:44:28.214Z,
+    __v: 0
+  },
+  {
+    _id: 5f9da2edffeeba3c0464f338,
+    blogTitle: 'something',
+    blogText: 'yo',
+    createdOn: 2020-10-31T17:46:21.624Z,
+    __v: 0
+  },
+  {
+    _id: 5f9da38affeeba3c0464f339,
+    blogTitle: 'Added by Prof Rogers',
+    blogText: 'test',
+    createdOn: 2020-10-31T17:48:58.075Z,
+    __v: 0
+  },
+  {
+    _id: 5fa819097ce26755ab5fc041,
+    blogTitle: 'something',
+    blogText: 'yo',
+    createdOn: 2020-11-08T16:12:57.741Z,
+    __v: 0
+  }
+]
+[0mGET /api/blogs/ [36m304 [0m3.233 ms - -[0m
+Getting blog list
+[
+  {
+    _id: 5f8b8fecffeeba3c0464f337,
+    blogTitle: 'Third',
+    blogText: 'Ok!',
+    createdOn: 2020-10-18T00:44:28.214Z,
+    __v: 0
+  },
+  {
+    _id: 5f9da2edffeeba3c0464f338,
+    blogTitle: 'something',
+    blogText: 'yo',
+    createdOn: 2020-10-31T17:46:21.624Z,
+    __v: 0
+  },
+  {
+    _id: 5f9da38affeeba3c0464f339,
+    blogTitle: 'Added by Prof Rogers',
+    blogText: 'test',
+    createdOn: 2020-10-31T17:48:58.075Z,
+    __v: 0
+  },
+  {
+    _id: 5fa819097ce26755ab5fc041,
+    blogTitle: 'something',
+    blogText: 'yo',
+    createdOn: 2020-11-08T16:12:57.741Z,
+    __v: 0
+  }
+]
+[0mGET /api/blogs/ [36m304 [0m3.356 ms - -[0m
+Getting blog list
+[
+  {
+    _id: 5f8b8fecffeeba3c0464f337,
+    blogTitle: 'Third',
+    blogText: 'Ok!',
+    createdOn: 2020-10-18T00:44:28.214Z,
+    __v: 0
+  },
+  {
+    _id: 5f9da2edffeeba3c0464f338,
+    blogTitle: 'something',
+    blogText: 'yo',
+    createdOn: 2020-10-31T17:46:21.624Z,
+    __v: 0
+  },
+  {
+    _id: 5f9da38affeeba3c0464f339,
+    blogTitle: 'Added by Prof Rogers',
+    blogText: 'test',
+    createdOn: 2020-10-31T17:48:58.075Z,
+    __v: 0
+  },
+  {
+    _id: 5fa819097ce26755ab5fc041,
+    blogTitle: 'something',
+    blogText: 'yo',
+    createdOn: 2020-11-08T16:12:57.741Z,
+    __v: 0
+  }
+]
+[0mGET /api/blogs/ [36m304 [0m3.112 ms - -[0m
+Finding blog details { blogid: '5f8b8fecffeeba3c0464f337' }
+{
+  _id: 5f8b8fecffeeba3c0464f337,
+  blogTitle: 'Third',
+  blogText: 'Ok!',
+  createdOn: 2020-10-18T00:44:28.214Z,
+  __v: 0
+}
+[0mGET /api/blogs/5f8b8fecffeeba3c0464f337 [32m200 [0m2.649 ms - 118[0m
+Finding blog details { blogid: '5f8b8fecffeeba3c0464f337' }
+{
+  _id: 5f8b8fecffeeba3c0464f337,
+  blogTitle: 'Third',
+  blogText: 'Ok!',
+  createdOn: 2020-10-18T00:44:28.214Z,
+  __v: 0
+}
+[0mGET /api/blogs/5f8b8fecffeeba3c0464f337 [36m304 [0m2.209 ms - -[0m
+Updating a blog with id of 5f8b8fecffeeba3c0464f337
+{
+  _id: '5f8b8fecffeeba3c0464f337',
+  blogTitle: 'Third',
+  blogText: 'Ok!',
+  createdOn: '2020-10-18T00:44:28.214Z',
+  __v: 0
+}
+[0mPUT /api/blogs/5f8b8fecffeeba3c0464f337 [32m201 [0m5.618 ms - 118[0m
+Getting blog list
+[
+  {
+    _id: 5f8b8fecffeeba3c0464f337,
+    blogTitle: 'Third',
+    blogText: 'Ok!',
+    createdOn: 2020-10-18T00:44:28.214Z,
+    __v: 0
+  },
+  {
+    _id: 5f9da2edffeeba3c0464f338,
+    blogTitle: 'something',
+    blogText: 'yo',
+    createdOn: 2020-10-31T17:46:21.624Z,
+    __v: 0
+  },
+  {
+    _id: 5f9da38affeeba3c0464f339,
+    blogTitle: 'Added by Prof Rogers',
+    blogText: 'test',
+    createdOn: 2020-10-31T17:48:58.075Z,
+    __v: 0
+  },
+  {
+    _id: 5fa819097ce26755ab5fc041,
+    blogTitle: 'something',
+    blogText: 'yo',
+    createdOn: 2020-11-08T16:12:57.741Z,
+    __v: 0
+  }
+]
+[0mGET /api/blogs/ [36m304 [0m2.638 ms - -[0m
+Finding blog details { blogid: '5f9da2edffeeba3c0464f338' }
+{
+  _id: 5f9da2edffeeba3c0464f338,
+  blogTitle: 'something',
+  blogText: 'yo',
+  createdOn: 2020-10-31T17:46:21.624Z,
+  __v: 0
+}
+[0mGET /api/blogs/5f9da2edffeeba3c0464f338 [32m200 [0m2.719 ms - 121[0m
+Finding blog details { blogid: '5f9da2edffeeba3c0464f338' }
+{
+  _id: 5f9da2edffeeba3c0464f338,
+  blogTitle: 'something',
+  blogText: 'yo',
+  createdOn: 2020-10-31T17:46:21.624Z,
+  __v: 0
+}
+[0mGET /api/blogs/5f9da2edffeeba3c0464f338 [36m304 [0m2.623 ms - -[0m
+Updating a blog with id of 5f9da2edffeeba3c0464f338
+{
+  _id: '5f9da2edffeeba3c0464f338',
+  blogTitle: 'something',
+  blogText: 'yo',
+  createdOn: '2020-10-31T17:46:21.624Z',
+  __v: 0
+}
+[0mPUT /api/blogs/5f9da2edffeeba3c0464f338 [32m201 [0m3.231 ms - 121[0m
+Getting blog list
+[
+  {
+    _id: 5f8b8fecffeeba3c0464f337,
+    blogTitle: 'Third',
+    blogText: 'Ok!',
+    createdOn: 2020-10-18T00:44:28.214Z,
+    __v: 0
+  },
+  {
+    _id: 5f9da2edffeeba3c0464f338,
+    blogTitle: 'something',
+    blogText: 'yo',
+    createdOn: 2020-10-31T17:46:21.624Z,
+    __v: 0
+  },
+  {
+    _id: 5f9da38affeeba3c0464f339,
+    blogTitle: 'Added by Prof Rogers',
+    blogText: 'test',
+    createdOn: 2020-10-31T17:48:58.075Z,
+    __v: 0
+  },
+  {
+    _id: 5fa819097ce26755ab5fc041,
+    blogTitle: 'something',
+    blogText: 'yo',
+    createdOn: 2020-11-08T16:12:57.741Z,
+    __v: 0
+  }
+]
+[0mGET /api/blogs/ [36m304 [0m4.098 ms - -[0m
+Getting blog list
+[
+  {
+    _id: 5f8b8fecffeeba3c0464f337,
+    blogTitle: 'Third',
+    blogText: 'Ok!',
+    createdOn: 2020-10-18T00:44:28.214Z,
+    __v: 0
+  },
+  {
+    _id: 5f9da2edffeeba3c0464f338,
+    blogTitle: 'something',
+    blogText: 'yo',
+    createdOn: 2020-10-31T17:46:21.624Z,
+    __v: 0
+  },
+  {
+    _id: 5f9da38affeeba3c0464f339,
+    blogTitle: 'Added by Prof Rogers',
+    blogText: 'test',
+    createdOn: 2020-10-31T17:48:58.075Z,
+    __v: 0
+  },
+  {
+    _id: 5fa819097ce26755ab5fc041,
+    blogTitle: 'something',
+    blogText: 'yo',
+    createdOn: 2020-11-08T16:12:57.741Z,
+    __v: 0
+  }
+]
+[0mGET /api/blogs/ [36m304 [0m3.137 ms - -[0m
