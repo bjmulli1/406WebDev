@@ -3,6 +3,9 @@ var dbURI = 'mongodb://blogger:blogger@localhost:27017/blogger';
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true });
 var gracefulShutdown;
 
+require('./blogs');
+require('./users');
+
 // Monitor and report when database is connected
 mongoose.connection.on('connected', function () {
 	console.log('Mongoose connected to ' + dbURI);
@@ -46,5 +49,3 @@ process.on('SIGTERM',function () {
 		process.exit(0);
 	});
 });
-
-require('./blogs');
