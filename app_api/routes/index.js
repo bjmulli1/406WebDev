@@ -1,12 +1,20 @@
 var express = require('express');
 var router = express.Router();
+var jwt = require('express-jwt');
+var auth = jwt({
+	secret: process.env.JWT_SECRET,
+	userProperty: 'payload'
+});
 var ctrlBlogs = require('../controllers/blogs');
+var ctrlAuth = require('../controllers/authentication');
 
-/* Request blogs */
+/* Request for blogs */
 router.get('/blogs', ctrlBlogs.blogGetAll);
-router.post('/blogs', ctrlBlogs.blogCreate);
 router.get('/blogs/:blogid', ctrlBlogs.blogGetOne);
-router.put('/blogs/:blogid', ctrlBlogs.blogUpdateOne);
-router.delete('/blogs/:blogid', ctrlBlogs.blogDeleteOne);
+router.post('/blogs', auth, ctrlBlogs.blogCreate);
+router.put('/blogs/:blogid', auth, ctrlBlogs.blogUpdateOne);
+router.delete('/blogs/:blogid', auth, ctrlBlogs.blogDeleteOne);
+router.post('/register', ctrlAuth.register);
+router.post('/login', ctrlAuth.login);
 
-module.exports = router; 
+module.exports = router;
