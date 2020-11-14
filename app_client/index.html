@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html ng-app="blogger">
+	  <head>
+		  <script src="/js/angular.min.js"></script>
+		  <script src="/js/angular-route.min.js"></script>
+		  <script src="/js/angular-ui-router.min.js"></script>
+		  <link rel='stylesheet' href='/stylesheets/style.css' />
+		  <link rel="stylesheet" href="/css/bootstrap.min.css">
+		  <link rel="stylesheet" href="/css/fontawesome-all.css">
+	  </head>
+	  <body>
+		  <!-- Navigation Directive -->
+		  <div ng-controller="NavigationController">
+			  <navigation></navigation>
+		  </div>
+
+		  <script type="text/ng-template" id="pages/home.html">
+			  <p></p>
+			  <h2>{{vm.pageHeader.title}}</h2>
+			  <h4>{{vm.message}}</h4>
+		  </script>
+		  <script type="text/ng-template" id="pages/blogList.html">
+			  <p></p>
+			  <div ng-repeat="blog in vm.blogs">
+			  	<div class="card border-primary" style="width: 40%">
+					<div class="card-header">
+					</div>
+					<div class="card-body">
+						<h5 class ="card-title">{{blog.blogTitle}}</h5>
+						<p ng-bind="blog.createdOn | date:'MM/dd/yyyy h:mm a'"></p>
+					</div>
+					<div class="card-footer">
+						<div class = "col-sm">
+							<ul class="nav justify-content-end nav-pills card-header-pills">
+								<li class="nav-item">
+									<a ng-show="vm.isLoggedIn()" class="nav-link" href="#/blogEdit/{{blog._id}}"> <i class="fas fa-edit"></i></a>
+								</li>
+								<li class="nav-item">
+									<a ng-show="vm.isLoggedIn()"class="nav-link" href="#/blogDelete/{{blog._id}}"> <i class="fas fa-trash-alt"></i></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<p>
+			</div>
+		  </script>
+		  <script type="text/ng-template" id="pages/blogAdd.html">
+			  <p></p>
+			  <div class="card border-primary" style="width: 40%">
+			  	<form name="userForm" ng-submit="vm.submit()" ng-controller="AddController" style="padding: 15px">
+					<div class="form-group">
+						<label for="summary" class="text-primary">Blog Title</label>
+						<input class="form-control" id="title" name="blogTitle">
+						<label for="detail" class="text-primary">Blog Text</label>
+						<textarea class="form-control" id="text" rows="3" name="blogText"></textarea>
+					</div>
+					<input type="submit" class="btn btn-primary" value="Add Blog">
+				</form>
+			</div>
+		  </script>
+		  <script type="text/ng-template" id="pages/blogEdit.html">
+			  <p></p>
+			  <div class="card border-primary" style="width: 40%">
+			  	<form name="userForm" ng-submit="vm.submit()" ng-controller="EditController" style="padding: 15px">
+					<div class="form-group">
+						<label for="summary" class="text-primary">Blog Title</label>
+						<input class="form-control" id="blogTitle" name="blogTitle" value="{{vm.blog.blogTitle}}">
+						<label for="detail" class="text-primary">Blog Text</label>
+						<textarea class="form-control" id="blogText" name="blogText" rows="3">{{vm.blog.blogText}}</textarea>
+					</div>
+					<input type="submit" class="btn btn-primary" value="Save Blog">
+				</form>
+			</div>
+		  </script>
+		  <script type="text/ng-template" id="pages/blogDelete.html">
+			  <p></p>
+			  <div class="card border-primary" style="width: 40%">
+			  	<form name="userForm" ng-submit="vm.submit()" ng-controller="DeleteController" style="padding: 15px">
+					<div class="form-group">
+						<label for="summary" class="text-primary">Blog Title</label>
+						<input readonly class="form-control" id="blogTitle" name="blogTitle" value="{{vm.blog.blogTitle}}">
+						<label for="detail" class="text-primary">Blog Text</label>
+						<textarea readonly class="form-control" id="blogText" name="blogText" rows="3">{{vm.blog.blogText}}</textarea>
+					</div>
+					<input type="submit" class="btn btn-danger float-right" value="Delete Blog">
+					<button ng-click="vm.cancel()" ng-controller="DeleteController" class="btn btn-primary float-right" style="margin-right: 25px">Cancel</button>
+				</form>
+			</div>
+		  </script>
+		  <script type="text/ng-template" id="common/auth/login.view.html">
+			  <div class="container">
+			  	<page-header content="vm.pageHeader"></page-header>
+				<div class="row">
+					<div class="col-md-6 col-sm-8">
+						<p class="lead">Not a member? Please <a href="#/register">register</a> first.</p>
+						<form ng-submit="vm.onSubmit()">
+							<div role="alert" ng-show="vm.formError" class="alert alert-danger">{{ vm.formError }}</div>
+								<div class="form-group">
+									<label for="email">Email address</label>
+									<input type="email" class="form-control" id="email" placeholder="Enter email" ng-model="vm.credentials.email">
+								</div>
+								<div class="form-group">
+									<label for="password">Password</label>
+									<input type="password" class="form-control" id="password" placeholder="Password" ng-model="vm.credentials.password">
+								</div>
+								<button type="submit" class="btn btn-primary">Sign in!</button>
+							</div>
+						</form>
+					</div>
+				</div>
+				<footer-generic></footer-generic>
+			</div>
+		</script>
+		<script type="text/ng-template" id="common/auth/register.view.html">
+			<div class="container">
+				<page-header content="vm.pageHeader"></page-header>
+				<div class="row">
+					<div class="col-md-6 col-sm-12">
+						<p class="lead">Already a member? Please <a href="#/login">log in</a> instead.</p>
+						<form ng-submit="vm.onSubmit()">
+							<div role="alert" ng-show="vm.formError" class="alert alert-danger">{{ vm.formError }}</div>
+								<div class="form-group">
+									<label for="name">Full name</label>
+									<input type="text" class="form-control" id="name" placeholder="Enter your name" ng-model="vm.credentials.name">
+								</div>
+								<div class="form-group">
+									<label for="email">Email address</label>
+									<input type="email" class="form-control" id="email" placeholder="Enter email" ng-model="vm.credentials.email">
+								</div>
+								<div class="form-group">
+									<label for="password">Password</label>
+									<input type="password" class="form-control" id="password" placeholder="Password" ng-model="vm.credentials.password">
+								</div>
+								<button type="submit" class="btn btn-primary">Register!</button>
+							</div>
+						</form>
+					</div>
+				</div>
+				<footer-generic></footer-generic>
+			</div>
+		</script>
+		  <div ng-view></div>
+		  <script src="/js/blogger.js"></script>
+		  <script src="/nav/navigation.js"></script>
+		  <script src="/auth/authentication.js"></script>
+	  </body>
+</html>

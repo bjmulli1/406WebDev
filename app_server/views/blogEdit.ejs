@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title><%= title %></title>
+		<link rel = 'stylesheet' href = '/stylesheets/style.css' />
+		<link rel = 'stylesheet' href = '/css/bootstrap.min.css' />
+	</head>
+	<body>
+		<% include ./partials/nav %>
+		<div class="card border-primary" style="width: 60%">
+			<form method = "POST" name= "userForm" action="/blogEdit/<%= blog._id %>"  style= "padding: 15px">
+				<div class="form-group">
+					<label for="summary" class="text-primary">Blog Title</label>
+					<input class="form-control" id="blogTitle" type="text" name="blogTitle" value="<%= blog.blogTitle %>">
+					<label for="detail" class="text-primary">Blog Text</label>
+					<textarea class="form-control" id="blogText" name="blogText" rows="3"><%= blog.blogText %></textarea>
+		                </div>
+				<input type="submit" class="btn btn-primary" value="Save Blog">
+			</form> 
+		</div>
+	</body>
+</html>
