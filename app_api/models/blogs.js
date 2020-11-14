@@ -5,9 +5,12 @@ var blogSchema = new mongoose.Schema({
 	blogText: String,
 	createdOn: {
 		type: Date,
-		"default": Date.now
-	}
+		"default": Date.now()
+	},
+	authorName: String,
+	authorEmail: String,
 });
 
+
 //Tells data to use blogSchema
-mongoose.model("blogger",blogSchema);
+mongoose.model('blogger', blogSchema);
