@@ -125,5 +125,5 @@ module.exports.blogDeleteOne = function(req, res){
 				}
 			}
 		);
-}
+};
 
