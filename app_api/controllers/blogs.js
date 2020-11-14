@@ -62,7 +62,9 @@ var buildBlogList = function(req, res, results){
 			_id: obj._id,
 			blogTitle: obj.blogTitle,
 			blogText: obj.blogText,
-			createdOn: obj.createdOn
+			createdOn: obj.createdOn,
+			authorName: obj.authorName,
+			authorEmail: obj.authorEmail
 		});
 	});
 	return blogs;
@@ -88,14 +90,15 @@ module.exports.blogCreate = function(req, res){
 		);
 };
 
-/* Update one blog */
+/* Update blog */
 module.exports.blogUpdateOne = function(req, res){
 	console.log("Updating a blog with id of " + req.params.blogid);
 	console.log(req.body);
 	Blog
 		.findOneAndUpdate(
 			{ _id: req.params.blogid},
-			{ $set: {"blogTitle": req.body.blogTitle, "blogText": req.body.blogText, "createdOn": req.body.createdOn}},
+			{ $set: {"blogTitle": req.body.blogTitle, "blogText": req.body.blogText, 
+				 "createdOn": req.body.createdOn, "authorName": req.body.authorName, "authorEmail": req.body.authorEmail}},
 			function(err, response){
 				if(err){
 					sendJSONresponse(res, 400, err);
