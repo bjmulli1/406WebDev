@@ -1,3 +1,6 @@
+//Tells data to use blogSchema
+mongoose.model('blogger', blogSchema);
+
 var mongoose = require('mongoose');
 
 var blogSchema = new mongoose.Schema({
@@ -9,8 +12,28 @@ var blogSchema = new mongoose.Schema({
 	},
 	authorName: String,
 	authorEmail: String,
+	rating: {
+		type: Number,
+		"default": 0,
+		min: 0,
+		max: 5
+	},
+	reviews: [reviewSchema]
 });
 
+var reviewSchema = new mongose.Schema({
+	author: { type: String, required: true },
+	rating: {
+		type: Number,
+		required: true,
+		min: 0,
+		max, 5
+	},
+	reviewText: { type: String, required: true },
+	createdOn: {
+		type: Date,
+		"default": Date.now
+	}
+});
 
-//Tells data to use blogSchema
 mongoose.model('blogger', blogSchema);
