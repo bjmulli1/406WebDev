@@ -35,5 +35,3 @@ var reviewSchema = new mongose.Schema({
 		"default": Date.now
 	}
 });
-
-mongoose.model('blogger', blogSchema);
