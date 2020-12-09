@@ -1,4 +1,3 @@
-var passport = require('passport');
 var mongoose = require('mongoose');
 var Blog = mongoose.model('blogger');
 
