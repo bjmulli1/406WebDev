@@ -1,6 +1,3 @@
-//Tells data to use blogSchema
-mongoose.model('blogger', blogSchema);
-
 var mongoose = require('mongoose');
 
 var blogSchema = new mongoose.Schema({
@@ -35,3 +32,5 @@ var reviewSchema = new mongose.Schema({
 		"default": Date.now
 	}
 });
+
+mongoose.model('blogger', blogSchema);
