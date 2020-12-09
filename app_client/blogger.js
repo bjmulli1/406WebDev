@@ -211,3 +211,4 @@ app.controller('DeleteController',['$http','$routeParams','$state', 'authenticat
 	vm.cancel = function() {
 		$state.go('blogList');
 	};
+}]);
